@@ -35,6 +35,21 @@ class Pokemon(db.Model):
     catch_rate = db.Column(db.Float(precision=3,asdecimal=True))
     captured = db.Column(db.Boolean)
 
+    def to_dict(self):
+        return {
+            'id': self.id ,
+            'number': self.number ,
+            'attack': self.attack ,
+            'defense': self.defense ,
+            'image_url': self.image_url ,
+            'name': self.name ,
+            'type': self.type ,
+            'moves': self.moves ,
+            'encounter_rate': self.encounter_rate ,
+            'catch_rate': self.catch_rate ,
+            'captured': self.captured ,
+            }
+
 
 # class PokemonType(db.Model):
 #     __tablename__ = 'pokemon_types'
