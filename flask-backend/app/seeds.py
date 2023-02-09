@@ -3,33 +3,33 @@ from .models import db, Pokemon
 
 def seed_data():
     pikachu = Pokemon(
-        number=25, 
-        name='Pikachu', 
-        type='electric', 
-        attack=55, 
-        defense=30, 
+        number=25,
+        name='Pikachu',
+        type='electric',
+        attack=55,
+        defense=30,
         moves= '["tackle","vine whip"]',
-        image_url='/images/pokemon_snaps/25.svg'
+        image_url='/static/images/pokemon_snaps/25.svg'
     )
 
     charmander = Pokemon(
-        number=4, 
-        name='Charmander', 
-        type='fire', 
-        attack=52, 
-        defense=43, 
+        number=4,
+        name='Charmander',
+        type='fire',
+        attack=52,
+        defense=43,
         moves= '["tackle","vine whip"]',
-        image_url='/images/pokemon_snaps/4.svg'
+        image_url='/static/images/pokemon_snaps/4.svg'
         )
-    
+
     bulbasaur = Pokemon(
-        number=1, 
-        name='Bulbasaur', 
+        number=1,
+        name='Bulbasaur',
         type='grass',
-        attack=49, 
-        defense=49, 
+        attack=49,
+        defense=49,
         moves= '["tackle","vine whip"]',
-        image_url='/images/pokemon_snaps/1.svg'
+        image_url='/static/images/pokemon_snaps/1.svg'
         )
 
     db.session.add(pikachu)

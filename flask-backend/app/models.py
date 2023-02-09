@@ -41,12 +41,12 @@ class Pokemon(db.Model):
             'number': self.number ,
             'attack': self.attack ,
             'defense': self.defense ,
-            'image_url': self.image_url ,
+            'imageUrl': self.image_url ,
             'name': self.name ,
             'type': self.type ,
             'moves': self.moves ,
-            'encounter_rate': self.encounter_rate ,
-            'catch_rate': self.catch_rate ,
+            'encounteRate': self.encounter_rate ,
+            'catchRate': self.catch_rate ,
             'captured': self.captured ,
             }
 
