@@ -4,18 +4,18 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask import Flask
 from app.config import Config
 from flask_migrate import Migrate
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 from .models import db, Pokemon, Item
 from .routes import pokemon
 import os
 
 app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 app.config.from_object(Config)
+# app.config['CORS_HEADERS'] = 'Content-Type'
 app.register_blueprint(pokemon.bp)
 db.init_app(app)
 Migrate(app,db)
+# CORS(app)
 
 @app.cli.command()
 def seed():
