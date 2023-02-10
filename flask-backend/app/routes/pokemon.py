@@ -19,17 +19,21 @@ def add_pokemon():
     form['csrf_token'].data = request.cookies['csrf_token']
     print(form.data)
 
+    print(request.get_json())
     if form.validate_on_submit():
+        double_q_list=[move.replace("'", '"')  for move in request.get_json()['moves']]
         params = {
             "name": form.data['name'],
             "number": form.data['number'],
             "attack": form.data['attack'],
             "defense": form.data['defense'],
-            "imageUrl" : form.data['imageUrl'],
+            # "image_url" : form.data['imageUrl'],
+            "image_url" : f"/static/images/pokemon_snaps/{form.data['number']}.svg",
             "type": form.data['type'],
-            "moves": json.dumps(form.data['moves'])
+            # "moves": f"{double_q_list}"
+            "moves": f"{json.dumps(double_q_list)}"
         }
-        new_pokemon = Pokemon(*params)
+        new_pokemon = Pokemon(**params)
 
         db.session.add(new_pokemon)
         db.session.commit()
